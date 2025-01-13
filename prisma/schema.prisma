@@ -1,0 +1,13 @@
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+// models
+model Todo {
+  id        Int      @id @default(autoincrement())
+  input     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
