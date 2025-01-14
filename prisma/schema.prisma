@@ -1,19 +1,14 @@
-// prisma/schema.prisma
-
-// generator
 generator client {
   provider = "prisma-client-js"
 }
 
-// This is your Prisma schema file,
 datasource db {
-  provider  = "postgresql"
-  url  	    = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-// models
 model Todo {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   input     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

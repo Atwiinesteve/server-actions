@@ -1,4 +1,3 @@
-
 import { revalidatePath } from "next/cache";
 import prisma from "../db";
 
@@ -33,7 +32,7 @@ export async function createTodo(formData: FormData) {
 export async function editTodo(formData: FormData) {
 	"use server";
 	const input = formData.get("input") as string;
-	const inputId = parseInt(formData.get("inputId") as string, 10);
+	const inputId = formData.get("inputId") as string;
 	await prisma.todo.update({
 		where: {
 			id: inputId,
@@ -48,7 +47,7 @@ export async function editTodo(formData: FormData) {
 // delete todo
 export async function deleteTodo(formData: FormData) {
 	"use server";
-	const inputId = parseInt(formData.get("inputId") as string, 10);
+	const inputId = formData.get("inputId") as string;
 	await prisma.todo.delete({
 		where: {
 			id: inputId,
