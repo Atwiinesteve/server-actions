@@ -1,13 +1,8 @@
 import { Input } from "@/components/ui/input";
-import { revalidatePath } from "next/cache";
-import prisma from "./db";
 
 import SaveButton from "@/components/Save";
 import EditButton from "@/components/Edit";
 import DeleteButton from "@/components/Delete";
-import { Button } from "@/components/ui/button";
-import { CiEdit } from "react-icons/ci";
-import { MdDelete } from "react-icons/md";
 import { createTodo, deleteTodo, editTodo, getTodos } from "./actions/actions";
 
 export default async function Home() {
